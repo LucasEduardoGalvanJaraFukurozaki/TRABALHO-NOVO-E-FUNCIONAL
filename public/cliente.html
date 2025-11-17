@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+        <title>Cadastro de Clientes - Sistema de Estoque de Farmácia</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body onload="listarClientes()">
+        <div class="nav-overlay" id="navOverlay"></div>
+
+        <header>
+            <a href="index.html"><img src="img/logomain4.png" alt="MainLogo" class="MainLogo"></a>
+            <nav>
+                <div class="nav-links">
+                    <a href="index.html">Início</a>
+                    <a href="index.html">Cadastros</a>
+                    <a href="movimento.html">Movimento</a>
+                    <a href="vendas.html">Vendas</a>
+                </div>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+
+        <div class="overlay" onclick="closeMenu()"></div>
+        <div class="mobile-menu">
+            <a href="index.html" onclick="closeMenu()">Início</a>
+            <a href="#cadastros" onclick="closeMenu()">Cadastros</a>
+            <a href="movimento.html" onclick="closeMenu()">Movimento</a>
+            <a href="vendas.html" onclick="closeMenu()">Vendas</a>
+        </div>
+
+        <main>
+            <div class="container">
+                <div class="main-content">
+                    <a href="index.html" class="back-btn">← Voltar</a>
+                    <h1 class="page-title">Cadastro de Clientes</h1>
+
+                    <div class="form-container">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="cliente-nome">Nome Completo</label>
+                                <input
+                                    type="text"
+                                    id="cliente-nome"
+                                    name="cliente-nome"
+                                    placeholder="Digite o nome completo"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="cliente-cpf">CPF</label>
+                                <input
+                                    maxlength="14"
+                                    type="text"
+                                    id="cliente-cpf"
+                                    name="cliente-cpf"
+                                    placeholder="000.000.000-00"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="cliente-telefone">Telefone</label>
+                                <input
+                                    maxlength="15"
+                                    type="text"
+                                    id="cliente-telefone"
+                                    name="cliente-telefone"
+                                    placeholder="(00) 00000-0000"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="cliente-email">E-mail</label>
+                                <input
+                                    type="email"
+                                    id="cliente-email"
+                                    name="cliente-email"
+                                    placeholder="exemplo@email.com"
+                                />
+                            </div>
+
+                            <!-- Seção de Endereço -->
+                            <fieldset class="endereco-section">
+                                <legend>Endereço</legend>
+
+                                <div class="form-row">
+                                    <div class="form-group form-group-small">
+                                        <label for="cliente-cep">CEP</label>
+                                        <input
+                                            type="text"
+                                            id="cliente-cep"
+                                            name="cliente-cep"
+                                            placeholder="00000-000"
+                                        />
+                                    </div>
+                                    <div class="form-group form-group-large">
+                                        <label for="cliente-logradouro"
+                                            >Logradouro</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="cliente-logradouro"
+                                            name="cliente-logradouro"
+                                            placeholder="Rua, Avenida, etc."
+                                        />
+                                    </div>
+                                    <div class="form-group form-group-small">
+                                        <label for="cliente-numero"
+                                            >Número</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="cliente-numero"
+                                            name="cliente-numero"
+                                            placeholder="123"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cliente-complemento"
+                                            >Complemento</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="cliente-complemento"
+                                            name="cliente-complemento"
+                                            placeholder="Apto, Bloco, etc. (opcional)"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cliente-bairro"
+                                            >Bairro</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="cliente-bairro"
+                                            name="cliente-bairro"
+                                            placeholder="Nome do bairro"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cliente-cidade"
+                                            >Cidade</label
+                                        >
+                                        <input
+                                            type="text"
+                                            id="cliente-cidade"
+                                            name="cliente-cidade"
+                                            placeholder="Nome da cidade"
+                                        />
+                                    </div>
+                                    <div class="form-group form-group-small">
+                                        <label for="cliente-estado"
+                                            >Estado</label
+                                        >
+                                        <select
+                                            id="cliente-estado"
+                                            name="cliente-estado"
+                                        >
+                                            <option value="">Selecione</option>
+                                            <option value="AC">AC</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AP">AP</option>
+                                            <option value="AM">AM</option>
+                                            <option value="BA">BA</option>
+                                            <option value="CE">CE</option>
+                                            <option value="DF">DF</option>
+                                            <option value="ES">ES</option>
+                                            <option value="GO">GO</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MT">MT</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MG">MG</option>
+                                            <option value="PA">PA</option>
+                                            <option value="PB">PB</option>
+                                            <option value="PR">PR</option>
+                                            <option value="PE">PE</option>
+                                            <option value="PI">PI</option>
+                                            <option value="RJ">RJ</option>
+                                            <option value="RN">RN</option>
+                                            <option value="RS">RS</option>
+                                            <option value="RO">RO</option>
+                                            <option value="RR">RR</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SP">SP</option>
+                                            <option value="SE">SE</option>
+                                            <option value="TO">TO</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="btn-group">
+                                <button
+                                    type="button"
+                                    onclick="cadastrarCliente(event)"
+                                    class="btn btn-primary"
+                                >
+                                    Salvar
+                                </button>
+                                <button type="reset" class="btn btn-secondary">
+                                    Limpar
+                                </button>
+                                <button
+                                    type="button"
+                                    onclick="atualizarCliente(event)"
+                                    class="btn btn-secondary"
+                                >
+                                    Atualizar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="search-container">
+                        <form action="#" method="get">
+                            <input
+                                type="text"
+                                id="buscar-cliente"
+                                name="buscar-cliente"
+                                class="search-input"
+                                placeholder="Buscar cliente..."
+                            />
+                            <button
+                                type="button"
+                                onclick="listarClientes()"
+                                class="search-btn"
+                            >
+                                Buscar
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>E-mail</th>
+                                    <th>Telefone</th>
+                                    <th>Cidade/UF</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-clientes"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer_cad">
+            <p>&copy; 2025 - Sistema de Estoque de Farmácia</p>
+            <address>
+                Contato:
+                <a href="mailto:suporte@estoquefarma.com.br"
+                    >suporte@estoquefarmasic.com.br</a
+                >
+            </address>
+        </footer>
+        <script src="js/cliente.js"></script>
+
+        <style></style>
+    </body>
+</html>

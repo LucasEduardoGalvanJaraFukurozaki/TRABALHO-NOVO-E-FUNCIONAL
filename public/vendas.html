@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>Realização de Venda</title>
+    <link rel="stylesheet" href="css/vendas.css">
+    <script src="js/venda.js" defer></script>
+</head>
+<body onload="listarVendas()">
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <header>
+        <a href="index.html"><img src="img/logomain4.png" alt="MainLogo" class="MainLogo"></a>
+        <nav>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="index.html">Cadastros</a>
+                <a href="movimento.html">Movimento</a>
+                <a href="vendas.html">Vendas</a>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay" onclick="closeMenu()"></div>
+    <div class="mobile-menu">
+        <a href="index.html" onclick="closeMenu()">Início</a>
+        <a href="#cadastros" onclick="closeMenu()">Cadastros</a>
+        <a href="movimento.html" onclick="closeMenu()">Movimento</a>
+        <a href="vendas.html" onclick="closeMenu()">Vendas</a>
+    </div>
+<div id="main-container">
+    <section class="box-section">
+    <h1>Realização de Venda</h1>
+    <a href="index.html" class="back-btn">← Voltar</a>
+    <!-- Busca do Cliente -->
+        <h3>Dados do Cliente</h3>
+        <form id="cliente-form">
+            <div class="full-box">
+                <label for="cpf-cliente">CPF do Cliente:</label>
+                <input type="text" id="cpf-cliente" name="cpf-cliente" placeholder="Digite o CPF do cliente" required>
+                <button type="button" class="alinhaBtns" onclick="buscarCliente()">Buscar Cliente</button>
+            </div>
+            <div id="cliente-info"></div>
+        </form>
+    </section>
+    <!-- Adicionar Produto -->
+    <section class="box-section">
+        <h3>Adicionar Produto</h3>
+        <form id="produto-form">
+            <div class="half-box">
+                <label for="produto-nome">Produto:</label>
+                <select id="produto-nome" name="produto-nome" required>
+                    <option value="">Selecione o produto</option>
+                    <!-- opções carregadas pelo JS -->
+                </select>
+            </div>
+            <div class="half-box">
+                <label for="produto-quantidade">Quantidade:</label>
+                <input type="number" id="produto-quantidade" name="produto-quantidade" placeholder="Quantidade" min="1" required>
+            </div>
+            <button type="button" class="alinhaBtns" onclick="adicionarProdutoAoCarrinho()">Adicionar ao Carrinho</button>
+        </form>
+        <br>
+        <h3>Carrinho</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço Unitário</th>
+                    <th>Subtotal</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="carrinho">
+                <!-- Preenchido dinamicamente -->
+            </tbody>
+        </table>
+        <div id="total-venda" data-total="0">Total: R$ 0,00</div>
+        <button type="button" class="alinhaBtns finalizar" onclick="finalizarVenda()">Finalizar Venda</button>
+    </section>
+
+
+    <!-- Campo de busca para vendas -->
+    <section class="box-section">
+        <div class="search-container">
+            <form action="#" method="get">
+                <input
+                    type="text"
+                    id="buscar-venda"
+                    name="buscar-venda"
+                    class="search-input"
+                    placeholder="Buscar venda por ID..."
+                />
+                <button
+                    type="button"
+                    onclick="buscarVenda()"
+                    class="search-btn"
+                >
+                    Buscar
+                </button>
+                <button
+                    type="button"
+                    onclick="listarVendas()"
+                    class="search-btn"
+                >
+                    Listar Todas
+                </button>
+            </form>
+        </div>
+
+    
+        <h3>Histórico de Vendas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Venda</th>
+                    <th>ID Cliente</th>
+                    <th>Produtos</th>
+                    <th>Funcionário</th>
+                    <th>Total</th>
+                    <th>Forma Pagamento</th>
+                    <th>Data/Hora</th>
+            
+                </tr>
+            </thead>
+            <tbody id="tabela-vendas">
+                <!-- Preenchido dinamicamente -->
+            </tbody>
+        </table>
+    </section>
+</div>
+<footer>
+    <p>&copy; 2025 Farmasic Solutions LTDA - Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>
